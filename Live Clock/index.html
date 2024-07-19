@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./liveClock.css" />
+    <link rel="icon" type="image/jpg" href="./clock.png" />
+    
+    <title>Live Clock</title>
+  </head>
+  <body>
+    <header class="name-header">
+      <h2>LIVE CLOCK</h2>
+    </header>
+
+    <div class="buttons-container">
+      <select id="timezoneSelect" class="timezoneSelect">
+        <option value="Asia/Kolkata">India (IST)</option>
+        <option value="UTC">UTC</option>
+        <option value="America/New_York">New York (EST)</option>
+        <option value="America/Los_Angeles">Los Angeles (PST)</option>
+        <option value="Europe/London">London (GMT)</option>
+        <option value="America/Chicago">Chicago (CST)</option>
+        <option value="Asia/Tokyo">Tokyo (JST)</option>
+        <option value="Europe/Paris">Paris (CET)</option>
+        <option value="Australia/Sydney">Sydney (AEST)</option>
+        <option value="Asia/Dubai">Dubai (GST)</option>
+        <option value="Asia/Singapore">Singapore (SGT)</option>
+        <option value="Asia/Hong_Kong">Hong Kong (HKT)</option>
+        <option value="Asia/Jakarta">Indonesia (WIB)</option>
+        <option value="Europe/Berlin">Germany (CEST)</option>
+        <option value="Africa/Cairo">Egypt (EET)</option>
+        <option value="Asia/Shanghai">China (CST)</option>
+        <option value="Asia/Kuwait">Kuwait (AST)</option>
+        <option value="Asia/Kuala_Lumpur">Malaysia (MYT)</option>
+        <option value="Africa/Lagos">Nigeria (WAT)</option>
+        <option value="Asia/Manila">Philippines (PHT)</option>
+        <option value="Africa/Johannesburg">South Africa (SAST)</option>
+      </select>
+
+      <label class="toggle" for="switch">
+        <input id="switch" class="input" type="checkbox" />
+        <div class="icon icon--moon">
+          <svg height="32" width="32" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path clip-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" fill-rule="evenodd"></path>
+          </svg>
+        </div>
+        <div class="icon icon--sun">
+          <svg height="32" width="32" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"></path>
+          </svg>
+        </div>
+      </label>
+    </div>
+
+    <div class="clock-container">
+      <div class="clock">
+        <div class="needle hour"></div>
+        <div class="needle minute"></div>
+        <div class="needle second"></div>
+        <div class="center-point"></div>
+      </div>
+
+      <div class="container">
+        <h4 class="date">---, ---, ---</h4>
+        <h3 class="time">00 : 00 : 00 <span class="am-pm">AM</span></h3>
+      </div>
+    </div>
+
+    <!-- <marquee><i><h6>DEVELOPED BY EDE MANIDEEP</h6></i></marquee> -->
+
+    <script src="./liveClock.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,365 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  transition: background-color 0.5s ease-in,all 0.5s ease-in;
+}
+
+.name-header {
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: xx-large;
+  letter-spacing: 2px;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+.timezoneSelect {
+  border: 1px solid transparent;
+  height: 21px;
+  cursor: pointer;
+}
+
+.timezoneSelect:focus,
+.timezoneSelect:active {
+  outline: none;
+  border-color: transparent;
+}
+
+.toggle {
+  background-color: white;
+  color: black;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 0 50px 20px rgba(0, 0, 0, 0.1);
+  line-height: 1;
+}
+
+.input {
+  display: none;
+}
+
+.icon {
+  grid-column: 1 / 1;
+  grid-row: 1 / 1;
+  transition: transform 500ms;
+}
+
+.icon--moon {
+  transition-delay: 200ms;
+}
+
+.icon--sun {
+  transform: scale(0);
+}
+
+#switch:checked + .icon--moon {
+  transform: rotate(360deg) scale(0);
+}
+
+#switch:checked ~ .icon--sun {
+  transition-delay: 200ms;
+  transform: scale(1) rotate(360deg);
+}
+
+.clock-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: flex-end;
+  height: 70%;
+  width: fit-content;
+}
+
+.clock {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.needle {
+  background-color: #fdfdfd;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 65px;
+  width: 3px;
+  transform-origin: bottom center;
+  transition: all 0.5s ease-in;
+}
+
+.needle.hour {
+  transform: translate(-50%, -100%) rotate(0deg);
+  background-color: darkorange;
+}
+
+.needle.minute {
+  transform: translate(-50%, -100%) rotate(0deg);
+  height: 100px;
+  background-color: black;
+}
+
+.needle.second {
+  transform: translate(-50%, -100%) rotate(0deg);
+  height: 100px;
+  background-color: #e74c3c;
+  transition: none;
+}
+
+.center-point {
+  background-color: #e74c3c;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.center-point::after {
+  content: '';
+  background-color: var(--primary-color);
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.time {
+  font-size: 60px;
+  color: #e74c3c;
+}
+
+.date {
+  color: white;
+  font-size: 15px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.container {
+  margin-top: 15%;
+  padding: 10px;
+  width: 300px;
+  background: rgba(141, 141, 83, 0.84);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 7px;
+}
+
+.container .date {
+  text-align: center;
+  color: white;
+  font-size: 18px;
+}
+
+.container .time {
+  text-align: center;
+  color: #00d4f9;
+  font-size: 35px;
+  margin-top: 10px;
+}
+
+
+
+
+
+:root {
+  --primary-color: #000;
+  --secondary-color: #fff;
+  --background-color: #f0f0f0;
+}
+
+html.dark {
+  --primary-color: #fff;
+  --secondary-color: #333;
+  --background-color: #111;
+  background-color: var(--background-color);
+  color: var(--primary-color);
+
+  .name-header {
+    color: white;
+  }
+
+  .needle.minute {
+    background-color: white;
+  }
+
+  .toggle {
+    background-color: black;
+    color: white;
+    box-shadow: 0 0 50px 20px rgba(168, 161, 161, 0.1);
+  }  
+
+  .container {
+    background-color: #052443;
+  }
+
+  .needle.hour {
+    background-color: yellow;
+  }
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  background-color: var(--background-color);
+  color: var(--primary-color);
+}
+
+
+/* Mobile devices */
+@media (max-width: 600px) {
+  .container {
+    width: 80%;
+    margin-top: 30%;
+    padding: 20px;
+  }
+
+  .name-header {
+    font-size: x-large;
+  }
+
+  .buttons-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 7%;
+  }
+
+  .clock {
+    margin-top: 20%;
+    width: 150px;
+    height: 150px;
+  }
+
+  .needle {
+    height: 50px;
+  }
+
+  .needle.minute {
+    height: 80px;
+  }
+
+  .needle.second {
+    height: 80px;
+  }
+
+  .time {
+    font-size: 45px;
+  }
+
+  .date {
+    font-size: 15px;
+  }
+}
+
+/* Tablets */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .container {
+    width: 70%;
+    padding: 15px;
+  }
+
+  .name-header {
+    font-size: x-large;
+  }
+
+  .buttons-container {
+    width: 70%;
+  }
+
+  .clock {
+    width: 175px;
+    height: 175px;
+  }
+
+  .needle {
+    height: 60px;
+  }
+
+  .needle.minute {
+    height: 90px;
+  }
+
+  .needle.second {
+    height: 90px;
+  }
+
+  .time {
+    font-size: 50px;
+  }
+
+  .date {
+    font-size: 14px;
+  }
+}
+
+/* Laptops and larger screens */
+@media (min-width: 1025px) {
+  .container {
+    width: 300px;
+    margin-top: 13%;
+    padding: 8px;
+  }
+
+  .name-header {
+    font-size: xx-large;
+  }
+
+  .buttons-container {
+    width: 350px;
+  }
+
+  .clock {
+    width: 200px;
+    height: 200px;
+    margin-top: 15%;
+  }
+
+  .needle {
+    height: 65px;
+  }
+
+  .needle.minute {
+    height: 100px;
+  }
+
+  .needle.second {
+    height: 100px;
+  }
+
+  .time {
+    font-size: 60px;
+  }
+
+  .date {
+    font-size: 15px;
+  }
+}
